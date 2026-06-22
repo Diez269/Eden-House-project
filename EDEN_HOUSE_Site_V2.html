@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eden House — Green & Détox Numérique · Comores</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#1B5E38;--forest2:#14482A;--mid:#2E7D52;--sage:#4CAF6F;--lagon:#1A6B8A;--ocre:#C87D3A;--sand:#F5EEE0;--cream:#FDFAF4;--dark:#0F1F17;--dark2:#1A1A1A;--gray:#666;--lgray:#F2F2F2;--white:#fff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark2)}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(15,31,23,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(76,175,111,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:#fff;text-decoration:none}
+.nav-logo em{color:var(--sage)}
+.nav-links{display:flex;list-style:none;gap:0}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.7);font-size:0.82rem;font-weight:500;padding:0.5rem 1rem;transition:color 0.2s;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--sage);border-bottom-color:var(--sage)}
+.nav-burger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer}
+/* PAGES */
+.page{display:none;padding-top:64px;min-height:100vh}
+.page.active{display:block}
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(160deg,var(--forest2) 0%,var(--forest) 50%,#0d2a1e 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 3rem}
+.hero-overlay{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(255,255,255,0.015) 80px,rgba(255,255,255,0.015) 82px);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.eyebrow::before{content:'';width:2rem;height:1px;background:var(--sage)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:#fff;line-height:1.05;margin-bottom:1.5rem}
+.hero h1 em{color:var(--sage);display:block}
+.hero-tagline{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.8;max-width:520px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:0;margin-top:4rem;border-top:1px solid rgba(76,175,111,0.2);padding-top:2rem;flex-wrap:wrap;position:relative;z-index:2}
+.stat{flex:1;min-width:110px;text-align:center;padding:1rem}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);display:block}
+.stat-lbl{font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.08em}
+/* USP BAR */
+.usp-bar{background:var(--dark2);padding:1rem 3rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:center;font-size:0.78rem;color:rgba(255,255,255,0.65)}
+.usp-bar .sep{color:rgba(76,175,111,0.4)}
+/* SECTIONS */
+.section{padding:6rem 3rem}
+.container{max-width:1140px;margin:0 auto}
+.label{font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
+.label::before{content:'';width:1.5rem;height:1px;background:var(--sage)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--forest);margin-bottom:1rem}
+h2 em{color:var(--ocre)}
+.intro-text{font-size:0.95rem;line-height:1.9;color:var(--gray)}
+/* BUTTONS */
+.btn-primary{display:inline-block;background:var(--sage);color:var(--dark);padding:0.85rem 2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;border:none;cursor:pointer}
+.btn-primary:hover{background:#5DC87E;transform:translateY(-2px)}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,0.35);color:#fff;padding:0.85rem 2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;cursor:pointer}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.05)}
+.btn-outline{display:inline-block;border:1px solid var(--forest);color:var(--forest);padding:0.85rem 2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;background:transparent;cursor:pointer}
+.btn-outline:hover{background:var(--forest);color:#fff}
+/* PILLARS */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:4rem}
+.pillar{padding:3rem 2.5rem;position:relative;overflow:hidden;transition:filter 0.3s}
+.pillar:hover{filter:brightness(1.08)}
+.pillar--dark{background:var(--forest)}
+.pillar--mid{background:var(--mid)}
+.pillar--sage{background:var(--sage)}
+.pillar-icon{font-size:2.5rem;display:block;margin-bottom:1.5rem}
+.pillar-num{position:absolute;top:1rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(255,255,255,0.07);line-height:1}
+.pillar h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.25rem}
+.pillar-sub{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1.5rem}
+.pillar ul{list-style:none}
+.pillar ul li{font-size:0.85rem;color:rgba(255,255,255,0.85);padding:0.45rem 0;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:flex-start;gap:0.6rem}
+.pillar ul li::before{content:'→';color:rgba(255,255,255,0.4);font-size:0.75rem;flex-shrink:0;margin-top:2px}
+.pillar ul li:last-child{border-bottom:none}
+/* PACKAGES */
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.package{background:#fff;padding:2.5rem;position:relative;transition:transform 0.3s,box-shadow 0.3s;border-top:3px solid var(--lgray)}
+.package:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(27,94,56,0.12);border-top-color:var(--sage)}
+.package--featured{background:var(--forest);border-top-color:var(--sage)}
+.pkg-badge{position:absolute;top:-12px;left:2rem;background:var(--ocre);color:#fff;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem}
+.pkg-name{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.5rem}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--forest);line-height:1;margin:0.75rem 0 0.25rem}
+.pkg-price span{font-size:1.2rem;vertical-align:super}
+.package--featured .pkg-price{color:#fff}
+.pkg-dur{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:inherit;margin-bottom:0.25rem}
+.package--featured .pkg-dur{color:#fff}
+.pkg-unit{font-size:0.75rem;color:var(--gray);margin-bottom:1.5rem}
+.package--featured .pkg-unit{color:rgba(255,255,255,0.5)}
+.pkg-list{list-style:none;margin-bottom:1.5rem}
+.pkg-list li{font-size:0.83rem;padding:0.4rem 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:flex-start;gap:0.6rem}
+.package--featured .pkg-list li{border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.pkg-list li::before{content:'✓';color:var(--sage);flex-shrink:0;font-size:0.7rem;margin-top:2px}
+.pkg-list li:last-child{border-bottom:none}
+.full-w{width:100%;text-align:center;margin-top:1rem}
+/* TARIFS SÉMINAIRE */
+.tarif-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.tarif-card{padding:2rem;background:#fff;border-top:3px solid var(--sage);transition:box-shadow 0.3s}
+.tarif-card:hover{box-shadow:0 12px 40px rgba(27,94,56,0.1)}
+.tarif-card--dark{background:var(--forest);border-top-color:var(--sage)}
+.tarif-icon{font-size:2rem;display:block;margin-bottom:0.75rem}
+.tarif-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--forest);margin-bottom:1.2rem}
+.tarif-card--dark h3{color:#fff}
+.tarif-rows{display:flex;flex-direction:column;gap:0.4rem}
+.tarif-row{display:flex;justify-content:space-between;align-items:center;padding:0.65rem 0.9rem;background:var(--lgray);font-size:0.88rem}
+.tarif-row:nth-child(2n){background:#fff;border:1px solid #eee}
+.tarif-row--dark{background:rgba(255,255,255,0.08);color:#fff;border:none}
+.tarif-row--dark2{background:rgba(255,255,255,0.14);color:#fff;border:none}
+.tarif-row span{color:var(--gray)}
+.tarif-row--dark span,.tarif-row--dark2 span{color:rgba(255,255,255,0.6)}
+.tarif-row strong{color:var(--forest);font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+.tarif-row--dark strong,.tarif-row--dark2 strong{color:var(--sage)}
+.tarif-note{font-size:0.78rem;color:var(--gray);margin-top:0.9rem;font-style:italic}
+.tarif-note-global{display:flex;align-items:flex-start;gap:1rem;background:var(--forest);padding:1.5rem 2rem;margin-top:2rem;color:#fff}
+.tarif-note-global span{font-size:1.5rem;flex-shrink:0}
+.tarif-note-global p{font-size:0.88rem;color:rgba(255,255,255,0.8);line-height:1.7}
+.tarif-note-global strong{color:var(--sage)}
+/* ECO */
+.eco-section{background:var(--forest2)}
+.eco-section h2{color:#fff}
+.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:3rem 0}
+.eco-card{padding:1.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(76,175,111,0.2);transition:border-color 0.3s}
+.eco-card:hover{border-color:var(--sage)}
+.eco-card span{font-size:2rem;display:block;margin-bottom:1rem}
+.eco-card strong{display:block;color:var(--sage);font-size:0.9rem;margin-bottom:0.5rem}
+.eco-card p{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.6}
+.eco-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.eco-stat{text-align:center;padding:1.5rem;background:rgba(255,255,255,0.04);border-top:2px solid var(--sage)}
+.eco-stat .big{display:block;font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--sage)}
+.eco-stat span:last-child{font-size:0.8rem;color:rgba(255,255,255,0.5)}
+/* ACTIVITÉS */
+.activities{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.activity{padding:2rem;background:#fff;border-bottom:3px solid transparent;transition:all 0.3s}
+.activity:hover{border-bottom-color:var(--sage);transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,94,56,0.1)}
+.activity span{font-size:2rem;display:block;margin-bottom:1rem}
+.activity strong{display:block;font-size:1rem;color:var(--forest);margin-bottom:0.5rem}
+.activity p{font-size:0.82rem;color:var(--gray);line-height:1.6}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem}
+.contact-form{display:flex;flex-direction:column;gap:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray)}
+.form-group input,.form-group select,.form-group textarea{padding:0.85rem 1rem;border:1px solid #ddd;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--dark2);outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage)}
+.form-group textarea{resize:vertical}
+.form-note{font-size:0.72rem;color:var(--gray);text-align:center;font-style:italic}
+.form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem;gap:1rem}
+.form-success span{font-size:3rem}
+.form-success h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--forest)}
+.info-cards{display:flex;flex-direction:column;gap:1.5rem}
+.info-card{background:#fff;padding:2rem;border-top:3px solid var(--sage)}
+.info-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--forest);margin-bottom:1.25rem}
+.info-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;font-size:0.85rem}
+.info-row span{font-size:1.2rem;flex-shrink:0}
+.info-row strong{display:block;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray);margin-bottom:0.2rem}
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.faq{padding:2rem;background:#fff;border-left:3px solid var(--sage)}
+.faq h4{font-size:0.95rem;color:var(--forest);margin-bottom:0.75rem;font-weight:600}
+.faq p{font-size:0.84rem;color:var(--gray);line-height:1.7}
+/* FEATURES LIST */
+.features-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.features-list li{display:flex;align-items:center;gap:1rem;font-size:0.88rem;padding:0.75rem 1rem;background:#fff;border-left:3px solid var(--sage)}
+.features-list li span{font-size:1.2rem;flex-shrink:0}
+/* CTA BOX */
+.cta-box{background:var(--forest);padding:3.5rem;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;margin-top:4rem}
+.cta-box h2{color:#fff}
+.cta-box h2 em{color:var(--sage)}
+.cta-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;margin-top:0.75rem}
+/* FOOTER */
+.footer{background:var(--dark);color:#fff;padding:4rem 3rem 0}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:0.75rem}
+.footer-logo em{color:var(--sage)}
+.footer-sub{font-size:0.8rem;color:rgba(255,255,255,0.4);line-height:1.9}
+.footer-h{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem}
+.footer-links{list-style:none;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:2.2}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;cursor:pointer}
+.footer-links a:hover{color:var(--sage)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:1.5rem 3rem;display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.25);flex-wrap:wrap;gap:0.5rem;max-width:100%}
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--forest2),var(--forest));padding:8rem 3rem 5rem;text-align:center;border-bottom:3px solid var(--sage)}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:#fff;margin:0.5rem 0 1rem}
+.page-hero h1 em{color:var(--sage)}
+.page-hero p{color:rgba(255,255,255,0.65);font-size:1rem;max-width:600px;margin:0 auto}
+/* RESTO BOX */
+.resto-box{background:var(--forest);padding:2.5rem;border-top:4px solid var(--sage)}
+/* AVANTAGES SÉMINAIRE */
+.avantages{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.avantage{display:flex;gap:1rem;align-items:flex-start;padding:1rem;background:var(--lgray)}
+.av-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(27,94,56,0.2);line-height:1;flex-shrink:0}
+.avantage strong{display:block;font-size:0.9rem;color:var(--forest);margin-bottom:0.25rem}
+.avantage p{font-size:0.82rem;color:var(--gray);line-height:1.5}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.price-note{text-align:center;font-size:0.78rem;color:var(--gray);font-style:italic;margin-top:1.5rem;line-height:1.8}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* MOBILE */
+@media(max-width:900px){
+  .nav{padding:1rem 1.5rem}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--dark2);padding:1.5rem;gap:1rem}
+  .nav.open .nav-links{display:flex}
+  .nav-burger{display:block}
+  .hero{padding:7rem 1.5rem 3rem}
+  .section{padding:4rem 1.5rem}
+  .pillars-grid,.packages{grid-template-columns:1fr}
+  .eco-grid{grid-template-columns:1fr 1fr}
+  .eco-bottom,.activities{grid-template-columns:1fr}
+  .tarif-grid,.two-col,.contact-grid,.faq-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;padding:1.5rem}
+  .cta-box{flex-direction:column;text-align:center}
+  .usp-bar{padding:1rem;gap:0.75rem;font-size:0.72rem}
+}
+
+/* ── Nouvelles pages ── */
+.menu-section{padding:5rem 3rem;background:#fff}
+.menu-section:nth-child(even){background:var(--sand)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.menu-card{background:var(--forest2);border-radius:16px;overflow:hidden;border:1px solid rgba(76,175,111,0.2)}
+.menu-card-header{background:var(--forest);padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem}
+.menu-card-header .icon{font-size:2rem}
+.menu-card-header h3{color:var(--sage);font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin:0}
+.menu-card-header p{color:rgba(255,255,255,0.5);font-size:0.78rem;margin:0.2rem 0 0}
+.menu-card-body{padding:1.5rem 2rem}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.menu-item:last-child{border-bottom:none}
+.menu-item-name{color:#fff;font-size:0.9rem;font-weight:500}
+.menu-item-desc{color:rgba(255,255,255,0.5);font-size:0.78rem;margin-top:2px}
+.menu-item-tag{background:rgba(76,175,111,0.15);color:var(--sage);font-size:0.7rem;padding:2px 8px;border-radius:20px;white-space:nowrap;margin-left:1rem}
+.menu-note{background:rgba(76,175,111,0.08);border-left:3px solid var(--sage);padding:1rem 1.5rem;border-radius:0 8px 8px 0;margin-top:2rem}
+.menu-note p{color:rgba(255,255,255,0.65);font-size:0.85rem;margin:0;line-height:1.6}
+.tarif-badge{display:inline-block;background:var(--gold,#C8960A);color:#0F1F17;font-size:0.75rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-left:8px}
+.spa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.spa-card{background:var(--forest2);border-radius:16px;padding:2rem;border:1px solid rgba(76,175,111,0.15);text-align:center;transition:transform 0.2s}
+.spa-card:hover{transform:translateY(-4px)}
+.spa-card .spa-icon{font-size:2.8rem;margin-bottom:1rem}
+.spa-card h3{color:var(--sage);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;margin:0 0 0.5rem}
+.spa-card p{color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.6;margin:0}
+.spa-card .dur{color:rgba(255,255,255,0.35);font-size:0.75rem;margin-top:0.8rem}
+.horaire-band{background:var(--forest);border-radius:12px;padding:1.2rem 2rem;display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:2.5rem}
+.horaire-item{text-align:center}
+.horaire-item .h-label{color:rgba(255,255,255,0.45);font-size:0.72rem;letter-spacing:1px;text-transform:uppercase}
+.horaire-item .h-time{color:var(--sage);font-size:1rem;font-weight:500;margin-top:2px}
+.bar-cocktails{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem}
+.cocktail-card{background:var(--forest2);border-radius:12px;padding:1.5rem;border-left:3px solid var(--sage)}
+.cocktail-card h4{color:#fff;font-size:0.95rem;font-weight:500;margin:0 0 0.4rem}
+.cocktail-card p{color:rgba(255,255,255,0.55);font-size:0.8rem;line-height:1.5;margin:0}
+.cocktail-card .c-type{font-size:0.7rem;color:var(--sage);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem}
+.activites-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem}
+.act-card{background:var(--forest2);border-radius:16px;overflow:hidden;border:1px solid rgba(76,175,111,0.15)}
+.act-card-top{padding:2rem;background:linear-gradient(135deg,var(--forest),var(--forest2))}
+.act-card-top .act-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.act-card-top h3{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin:0 0 0.3rem}
+.act-card-top .act-level{font-size:0.75rem;color:var(--sage);letter-spacing:1px}
+.act-card-body{padding:1.5rem 2rem}
+.act-card-body p{color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.6;margin:0 0 1rem}
+.act-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.act-tag{background:rgba(76,175,111,0.12);color:var(--sage);font-size:0.72rem;padding:3px 10px;border-radius:20px}
+.section-intro{max-width:700px;margin:0 auto 1rem;text-align:center;color:rgba(255,255,255,0.65);line-height:1.7}
+.section-intro.dark{color:var(--text)}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo" onclick="showPage('accueil')">Eden <em>House</em></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('accueil')" class="active" id="nav-accueil">Accueil</a></li>
+    <li><a href="#" onclick="showPage('offres')" id="nav-offres">Offres & Forfaits</a></li>
+    <li><a href="#" onclick="showPage('seminaire')" id="nav-seminaire">Séminaires</a></li>
+    <li><a href="#" onclick="showPage('restaurant')" id="nav-restaurant">Restaurant</a></li>
+    <li><a href="#" onclick="showPage('spa')" id="nav-spa">Spa & Bien-être</a></li>
+    <li><a href="#" onclick="showPage('bar')" id="nav-bar">Bar</a></li>
+    <li><a href="#" onclick="showPage('activites')" id="nav-activites">Activités</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <button class="nav-burger" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="menu">☰</button>
+</nav>
+
+<!-- ═══════════════ PAGE ACCUEIL ═══════════════ -->
+<div id="page-accueil" class="page active">
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Ngazidja · Comores · Océan Indien</p>
+      <h1>Le sanctuaire<br><em>qui vous redonne</em><br>votre liberté</h1>
+      <p class="hero-tagline">Premier éco-sanctuaire de déconnexion douce de l'océan Indien. Pas besoin d'éteindre votre téléphone — nous vous donnons une raison plus belle de le laisser en poche.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#" onclick="showPage('offres')">Découvrir nos forfaits</a>
+        <a class="btn-ghost" href="#" onclick="showPage('seminaire')">Séminaires d'entreprise</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-val">12</span><span class="stat-lbl">Éco-bungalows</span></div>
+      <div class="stat"><span class="stat-val">350€</span><span class="stat-lbl">/ nuit tout compris</span></div>
+      <div class="stat"><span class="stat-val">2027</span><span class="stat-lbl">Ouverture</span></div>
+      <div class="stat"><span class="stat-val">🏆</span><span class="stat-lbl">Green Key visée</span></div>
+    </div>
+  </section>
+
+  <div class="usp-bar">
+    <span>🌿 80% approvisionnement local</span><span class="sep">·</span>
+    <span>📵 Détox numérique douce</span><span class="sep">·</span>
+    <span>🏝 Réserve UNESCO</span><span class="sep">·</span>
+    <span>⚡ Énergie solaire</span><span class="sep">·</span>
+    <span>🤿 Plongée responsable</span>
+  </div>
+
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <p class="label">Le concept</p>
+      <h2 style="text-align:center">Un sanctuaire en <em>trois temps</em></h2>
+      <p class="intro-text" style="text-align:center;max-width:600px;margin:0 auto 0">Eden House structure votre séjour autour de trois phases qui permettent une régénération profonde.</p>
+      <div class="pillars-grid">
+        <div class="pillar pillar--dark reveal">
+          <span class="pillar-num">01</span><span class="pillar-icon">📵</span>
+          <h3>Déconnexion numérique</h3><p class="pillar-sub">Lâcher Prise</p>
+          <ul><li>Consigne des appareils</li><li>Chambres sans TV</li><li>Wi-Fi discret & volontaire</li><li>Aucune pression</li></ul>
+        </div>
+        <div class="pillar pillar--mid reveal">
+          <span class="pillar-num">02</span><span class="pillar-icon">🌿</span>
+          <h3>Reconnexion à la nature</h3><p class="pillar-sub">Immersion</p>
+          <ul><li>Bains de forêt</li><li>Observation tortues & dauphins</li><li>Plongée responsable</li><li>Randonnées volcan</li></ul>
+        </div>
+        <div class="pillar pillar--sage reveal">
+          <span class="pillar-num">03</span><span class="pillar-icon">🧘</span>
+          <h3>Reconnexion à soi</h3><p class="pillar-sub">L'Essentiel</p>
+          <ul><li>Yoga & méditation</li><li>Spa aux huiles locales</li><li>Cuisine saine & locale</li><li>Ateliers bien-être</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--sand)">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+        <div>
+          <p class="label">Nos forfaits</p>
+          <h2>Trois expériences,<br><em>un seul cadre</em></h2>
+          <p class="intro-text">Chaque forfait est tout compris pour 2 personnes : hébergement, repas, activités. Prix moyen : <strong>350 €/nuit</strong>.</p>
+          <a class="btn-primary" href="#" onclick="showPage('offres')" style="margin-top:2rem;display:inline-block">Voir tous les forfaits →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:#fff;border-left:4px solid var(--sage)">
+            <span style="font-size:0.9rem;font-weight:500">🌊 Découverte</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--forest)">1 050 €</span>
+            <span style="font-size:0.72rem;color:var(--gray)">3 nuits</span>
+          </div>
+          <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--forest);border-left:4px solid var(--sage);position:relative">
+            <span style="position:absolute;top:-10px;left:1rem;background:var(--ocre);color:#fff;font-size:0.6rem;font-weight:600;padding:0.2rem 0.6rem;letter-spacing:0.1em">★ RECOMMANDÉ</span>
+            <span style="font-size:0.9rem;font-weight:500;color:#fff">🌿 Ressourcement</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--sage)">1 650 €</span>
+            <span style="font-size:0.72rem;color:rgba(255,255,255,0.5)">5 nuits</span>
+          </div>
+          <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:#fff;border-left:4px solid var(--sage)">
+            <span style="font-size:0.9rem;font-weight:500">✨ Transformation</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--forest)">2 450 €</span>
+            <span style="font-size:0.72rem;color:var(--gray)">7 nuits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section eco-section">
+    <div class="container">
+      <p class="label" style="color:var(--sage)">Éco-responsabilité</p>
+      <h2>Construire <em>sans dénaturer</em></h2>
+      <div class="eco-grid">
+        <div class="eco-card reveal"><span>⚡</span><strong>Énergie solaire</strong><p>Panneaux solaires, éoliennes, autonomie partielle</p></div>
+        <div class="eco-card reveal"><span>💧</span><strong>Eau naturelle</strong><p>Récupération de pluie, traitement, irrigation potager</p></div>
+        <div class="eco-card reveal"><span>♻️</span><strong>Zéro déchet</strong><p>Zéro plastique, compostage, recyclage systématique</p></div>
+        <div class="eco-card reveal"><span>🪵</span><strong>Construction locale</strong><p>Bois, pierre, aloès des Comores · Ventilation naturelle</p></div>
+      </div>
+      <div class="eco-bottom">
+        <div class="eco-stat reveal"><span class="big">80%</span><span>Approvisionnement local</span></div>
+        <div class="eco-stat reveal"><span class="big">🏆</span><span>Green Key visée dès l'an 1</span></div>
+        <div class="eco-stat reveal"><span class="big">UNESCO</span><span>Réserve de biosphère · Ngazidja</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--sand)">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <p class="label" style="color:var(--sage)">Offre B2B</p>
+          <h2>Organisez votre <em>séminaire</em> autrement</h2>
+          <p>Salle 30 personnes, cadre exceptionnel, dès 95 €/pers. La seule offre éco-responsable des Comores.</p>
+        </div>
+        <a class="btn-primary" href="#" onclick="showPage('seminaire')">Découvrir l'offre séminaire →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><p class="footer-logo">Eden <em>House</em></p><p class="footer-sub">Green & Détox Numérique<br>6 Rue du Badamier, Mitsamihouli<br>Ngazidja — Comores</p></div>
+      <div><p class="footer-h">Navigation</p><ul class="footer-links"><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('offres')">Offres & Forfaits</a></li><li><a onclick="showPage('seminaire')">Séminaires</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><p class="footer-h">Engagement</p><ul class="footer-links"><li>🏆 Green Key</li><li>🌿 80% local</li><li>⚡ Solaire</li><li>🏝 UNESCO</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Eden House · Projet Bachelor · Imrane Mohamed Abdou</span><span>Ouverture 2027</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE OFFRES ═══════════════ -->
+<div id="page-offres" class="page">
+  <div class="page-hero">
+    <p class="label" style="justify-content:center">Nos forfaits</p>
+    <h1>Offres & <em>Expériences</em></h1>
+    <p>Chaque séjour inclut hébergement, repas, activités. Tout compris. Aucune surprise.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <p class="label">Forfaits séjour</p>
+      <h2>Trois durées,<br><em>une transformation</em></h2>
+      <p class="intro-text" style="margin-bottom:2rem">Prix moyen par nuit : 350 € tout compris pour 2 personnes. Ouverture prévue 2027.</p>
+      <div class="packages">
+        <div class="package reveal">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem"><span style="font-size:2rem">🌊</span><div><p class="pkg-name">Découverte</p><p class="pkg-dur">3 nuits / 4 jours</p></div></div>
+          <p class="pkg-price"><span>€</span>1 050</p>
+          <p class="pkg-unit">pour 2 personnes · tout compris</p>
+          <ul class="pkg-list"><li>Hébergement en éco-bungalow</li><li>Tous les repas à La Table des Sens</li><li>2 activités au choix</li><li>Accès spa & piscine naturelle</li><li>Yoga & méditation</li></ul>
+          <a href="#" onclick="showPage('contact')" class="btn-outline full-w">Réserver</a>
+        </div>
+        <div class="package package--featured reveal">
+          <div class="pkg-badge">★ Le plus populaire</div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem"><span style="font-size:2rem">🌿</span><div><p class="pkg-name">Ressourcement</p><p class="pkg-dur">5 nuits / 6 jours</p></div></div>
+          <p class="pkg-price"><span>€</span>1 650</p>
+          <p class="pkg-unit">pour 2 personnes · tout compris</p>
+          <ul class="pkg-list"><li>Hébergement éco-bungalow premium</li><li>Tous les repas & snacks locaux</li><li>3 activités au choix</li><li>Séance spa individuelle incluse</li><li>Yoga & méditation quotidiens</li><li>Observation tortues & dauphins</li></ul>
+          <a href="#" onclick="showPage('contact')" class="btn-primary full-w">Réserver</a>
+        </div>
+        <div class="package reveal">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem"><span style="font-size:2rem">✨</span><div><p class="pkg-name">Transformation</p><p class="pkg-dur">7 nuits / 8 jours</p></div></div>
+          <p class="pkg-price"><span>€</span>2 450</p>
+          <p class="pkg-unit">pour 2 personnes · tout compris</p>
+          <ul class="pkg-list"><li>Éco-bungalow vue mer</li><li>Tous les repas & boissons inclus</li><li>Programme bien-être complet</li><li>Spa illimité & activités</li><li>Plongée responsable guidée</li><li>Randonnée volcan Karthala</li></ul>
+          <a href="#" onclick="showPage('contact')" class="btn-outline full-w">Réserver</a>
+        </div>
+      </div>
+      <p class="price-note">Prix HT · TVA locale à appliquer · Ouverture 2027 · Acompte 30% à la réservation</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--sand)">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="label">L'hébergement</p>
+          <h2>Éco-bungalows <em>& Espace bien-être</em></h2>
+          <h3 style="color:var(--forest);font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin:1rem 0">12 bungalows · 24 couchages</h3>
+          <ul class="features-list">
+            <li><span>🪵</span> Matériaux 100% locaux (bois, pierre, aloès)</li>
+            <li><span>🌱</span> Intégration végétale complète</li>
+            <li><span>💧</span> Piscine naturelle sans chlore</li>
+            <li><span>🎨</span> Design épuré & bioclimatique</li>
+            <li><span>❌</span> Pas de TV ni de minibar digital</li>
+            <li><span>✅</span> Mobilier artisanal local</li>
+          </ul>
+        </div>
+        <div class="resto-box">
+          <p class="label" style="color:var(--sage)">Restaurant</p>
+          <h3 style="color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:1rem">La Table des Sens</h3>
+          <p style="color:rgba(255,255,255,0.7);font-style:italic;margin-bottom:1.5rem">Farm-to-table & Sea-to-table</p>
+          <ul style="list-style:none;color:rgba(255,255,255,0.85);line-height:2.2;font-size:0.9rem">
+            <li>🌱 Potager biologique sur place</li>
+            <li>🐟 Pêche responsable, saison locale</li>
+            <li>♻️ Zéro déchet & compostage</li>
+            <li>📵 Ardoise artisanale — sans écran</li>
+            <li>🏠 80% d'approvisionnement local</li>
+            <li>💰 Inclus dans tous les forfaits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="label">Activités</p>
+      <h2>Choisissez votre <em>aventure</em></h2>
+      <div class="activities">
+        <div class="activity reveal"><span>🤿</span><strong>Plongée responsable</strong><p>Récifs coralliens préservés & faune marine exceptionnelle</p></div>
+        <div class="activity reveal"><span>🐢</span><strong>Tortues & dauphins</strong><p>Observation dans leur milieu naturel avec guide local</p></div>
+        <div class="activity reveal"><span>🌋</span><strong>Volcan Karthala</strong><p>Randonnée guidée — l'un des plus grands volcans actifs du monde</p></div>
+        <div class="activity reveal"><span>🧘</span><strong>Yoga & méditation</strong><p>Sessions quotidiennes face à l'océan au lever du soleil</p></div>
+        <div class="activity reveal"><span>🧴</span><strong>Spa & soins</strong><p>Huiles essentielles locales, soins traditionnels comoriens</p></div>
+        <div class="activity reveal"><span>🛍</span><strong>Boutique artisanale</strong><p>Artisanat comorien, produits bio maison & souvenirs locaux</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><p class="footer-logo">Eden <em>House</em></p><p class="footer-sub">6 Rue du Badamier, Mitsamihouli<br>Ngazidja — Comores</p></div>
+      <div><p class="footer-h">Navigation</p><ul class="footer-links"><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('offres')">Offres & Forfaits</a></li><li><a onclick="showPage('seminaire')">Séminaires</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><p class="footer-h">Engagement</p><ul class="footer-links"><li>🏆 Green Key</li><li>🌿 80% local</li><li>⚡ Solaire</li><li>🏝 UNESCO</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Eden House · Projet Bachelor · Imrane Mohamed Abdou</span><span>Ouverture 2027</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE SÉMINAIRE ═══════════════ -->
+<div id="page-seminaire" class="page">
+  <div class="page-hero" style="background:var(--dark)">
+    <p class="label" style="justify-content:center;color:var(--sage)">Offre B2B</p>
+    <h1>Séminaires & <em>Événements</em></h1>
+    <p>La seule offre de séminaire éco-responsable des Comores. Travail, bien-être et nature — enfin réunis.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="label">Le concept</p>
+          <h2>Un « Séminaire <em>Durable</em> »</h2>
+          <p class="intro-text" style="margin-bottom:1.5rem">Nous ne vendons pas des mètres carrés. Nous vendons une expérience de travail responsable dans un cadre qui inspire et ressource vos équipes.</p>
+          <ul class="features-list" style="margin-bottom:2rem">
+            <li><span>🖥</span> Vidéoprojecteur · Paperboard · Wi-Fi back-office · Climatisation naturelle</li>
+            <li><span>👥</span> 30 personnes max · Disposition modulable</li>
+            <li><span>🌿</span> Vue océan · Nature préservée · Détox numérique facilitée</li>
+            <li><span>🎯</span> PME · ONG · Agences ONU · Ambassades · Cabinets conseil</li>
+          </ul>
+          <div class="avantages">
+            <div class="avantage"><div class="av-num">01</div><div><strong>Lissage de la saisonnalité</strong><p>Séminaires en basse saison touristique — idéal pour les deux parties.</p></div></div>
+            <div class="avantage"><div class="av-num">02</div><div><strong>Expérience unique aux Comores</strong><p>Aucun concurrent ne propose salle + bien-être + éco-responsabilité.</p></div></div>
+            <div class="avantage"><div class="av-num">03</div><div><strong>Équipes ressourcées</strong><p>Vos collaborateurs repartent avec énergie, clarté et cohésion renforcée.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <p class="label">Grille tarifaire</p>
+          <h2>Des formules <em>flexibles</em></h2>
+          <div class="tarif-grid">
+            <div class="tarif-card">
+              <span class="tarif-icon">🕐</span><h3>Location seule</h3>
+              <div class="tarif-rows">
+                <div class="tarif-row"><span>½ journée (4h)</span><strong>120 €</strong></div>
+                <div class="tarif-row"><span>Journée complète (8h)</span><strong>200 €</strong></div>
+              </div>
+            </div>
+            <div class="tarif-card">
+              <span class="tarif-icon">☕</span><h3>+ En-cas & pauses</h3>
+              <div class="tarif-rows">
+                <div class="tarif-row"><span>½ journée + 1 pause</span><strong>180 €</strong></div>
+                <div class="tarif-row"><span>Journée + 2 pauses</span><strong>280 €</strong></div>
+              </div>
+            </div>
+            <div class="tarif-card">
+              <span class="tarif-icon">🍽</span><h3>+ Déjeuner</h3>
+              <div class="tarif-rows">
+                <div class="tarif-row"><span>Journée + déjeuner buffet</span><strong>400 €</strong></div>
+                <div class="tarif-row"><span>+ café d'accueil</span><strong>450 €</strong></div>
+              </div>
+            </div>
+            <div class="tarif-card tarif-card--dark">
+              <span class="tarif-icon">🏨</span><h3>Résidentiel</h3>
+              <div class="tarif-rows">
+                <div class="tarif-row tarif-row--dark"><span>1 nuit / 2j (sans déj. J2)</span><strong>95 €/pers.</strong></div>
+                <div class="tarif-row tarif-row--dark2"><span>1 nuit / 2j (avec déj. J2)</span><strong>115 €/pers.</strong></div>
+                <div class="tarif-row tarif-row--dark"><span>2 nuits / 3j tout compris</span><strong>200 €/pers.</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="tarif-note-global">
+            <span>💡</span>
+            <p>Pour 15 personnes, la formule résidentielle représente <strong>95 à 115 €/personne</strong> tout compris — très compétitif pour le marché comorien.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--dark);text-align:center">
+    <div class="container">
+      <p class="label" style="color:var(--sage);justify-content:center">Organiser votre séminaire</p>
+      <h2 style="color:#fff">Prêt à donner <em>du sens</em> à votre prochain événement ?</h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:40rem;margin:1.5rem auto">Contactez-nous pour un devis personnalisé. Nous construisons l'offre qui correspond exactement à vos besoins.</p>
+      <a href="#" onclick="showPage('contact')" class="btn-primary" style="margin-top:1.5rem;display:inline-block">Demander un devis →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><p class="footer-logo">Eden <em>House</em></p><p class="footer-sub">6 Rue du Badamier, Mitsamihouli<br>Ngazidja — Comores</p></div>
+      <div><p class="footer-h">Navigation</p><ul class="footer-links"><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('offres')">Offres & Forfaits</a></li><li><a onclick="showPage('seminaire')">Séminaires</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><p class="footer-h">Séminaire</p><ul class="footer-links"><li>30 personnes max</li><li>Dès 120 €/jour</li><li>Résidentiel dès 95 €/pers.</li><li>Devis gratuit</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Eden House · Projet Bachelor · Imrane Mohamed Abdou</span><span>Ouverture 2027</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE CONTACT ═══════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <p class="label" style="justify-content:center">Nous contacter</p>
+    <h1>Écrivez-<em>nous</em></h1>
+    <p>Demande de réservation, devis séminaire ou question — nous répondons sous 48h.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <h2 style="margin-bottom:2rem">Envoyez-nous un <em style="color:var(--ocre)">message</em></h2>
+          <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group"><label>Prénom *</label><input type="text" placeholder="Votre prénom" required></div>
+              <div class="form-group"><label>Nom *</label><input type="text" placeholder="Votre nom" required></div>
+            </div>
+            <div class="form-group"><label>Email *</label><input type="email" placeholder="votre@email.com" required></div>
+            <div class="form-group">
+              <label>Sujet</label>
+              <select><option value="">Sélectionnez un sujet...</option><option>Réservation forfait séjour</option><option>Demande de devis séminaire</option><option>Information générale</option><option>Partenariat / Presse</option><option>Autre</option></select>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Dates souhaitées</label><input type="text" placeholder="Ex : Juillet 2027"></div>
+              <div class="form-group"><label>Nombre de personnes</label><input type="number" min="1" max="30" placeholder="2"></div>
+            </div>
+            <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Décrivez votre projet ou posez votre question..."></textarea></div>
+            <button type="submit" class="btn-primary full-w" style="margin-top:0.5rem">Envoyer ma demande →</button>
+            <p class="form-note">* Champs obligatoires · Réponse sous 48h · Aucune donnée revendue</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <span>✅</span>
+            <h3>Message envoyé !</h3>
+            <p>Nous vous répondons sous 48 heures. Merci de votre intérêt pour Eden House.</p>
+          </div>
+        </div>
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>Informations</h3>
+            <div class="info-row"><span>📍</span><div><strong>Adresse</strong>6 Rue du Badamier<br>Mitsamihouli, Ngazidja<br>Comores — Océan Indien</div></div>
+            <div class="info-row"><span>📅</span><div><strong>Ouverture prévue</strong>2027</div></div>
+            <div class="info-row"><span>🕐</span><div><strong>Réponse</strong>Sous 48 heures ouvrées</div></div>
+            <div class="info-row"><span>🌍</span><div><strong>Langues</strong>Français · English · Arabe</div></div>
+          </div>
+          <div class="info-card" style="background:var(--forest)">
+            <h3 style="color:var(--sage)">Séminaires & B2B</h3>
+            <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem">Pour tout devis séminaire, merci de préciser le nombre de participants, les dates souhaitées et la formule (journée, résidentiel).</p>
+            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.08);padding:0.75rem 1rem;margin-bottom:0.75rem">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--sage)">30</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">personnes max · Salle 90 m²</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.08);padding:0.75rem 1rem">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--sage)">95€</span>
+              <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">/ personne dès la formule résidentielle</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--sand)">
+    <div class="container">
+      <p class="label">FAQ</p>
+      <h2>Questions <em>fréquentes</em></h2>
+      <div class="faq-grid">
+        <div class="faq reveal"><h4>Comment se déroule la détox numérique ?</h4><p>À l'arrivée, nous vous proposons de confier vos appareils à la réception. Ce n'est pas une obligation — c'est une invitation. Vos bungalows n'ont pas de TV mais vous pouvez utiliser votre téléphone à tout moment.</p></div>
+        <div class="faq reveal"><h4>Comment accéder aux Comores ?</h4><p>Des vols réguliers depuis Paris (via Nairobi, Addis-Abeba ou La Réunion), Marseille et Dubaï desservent l'aéroport de Moroni. Durée depuis Paris : environ 12h.</p></div>
+        <div class="faq reveal"><h4>Les forfaits sont-ils vraiment tout compris ?</h4><p>Oui — hébergement, tous les repas, les activités incluses et l'accès au spa et à la piscine naturelle. Seules les activités supplémentaires hors forfait sont facturées en option.</p></div>
+        <div class="faq reveal"><h4>Quelle est la politique d'annulation ?</h4><p>Annulation gratuite jusqu'à 60 jours avant l'arrivée. Entre 60 et 30 jours : remboursement de 50% de l'acompte. Moins de 30 jours : acompte non remboursable sauf cas de force majeure.</p></div>
+        <div class="faq reveal"><h4>Quand ouvre Eden House ?</h4><p>Ouverture prévue en 2027. Contactez-nous pour être informé(e) en priorité de l'ouverture des réservations et bénéficier d'offres early bird.</p></div>
+        <div class="faq reveal"><h4>Les séminaires, pour quelle taille d'entreprise ?</h4><p>Notre salle accueille jusqu'à 30 personnes. Nous travaillons avec des PME locales, des ONG, des agences internationales et des administrations. Tarifs adaptés au marché comorien.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><p class="footer-logo">Eden <em>House</em></p><p class="footer-sub">6 Rue du Badamier, Mitsamihouli<br>Ngazidja — Comores</p></div>
+      <div><p class="footer-h">Navigation</p><ul class="footer-links"><li><a onclick="showPage('accueil')">Accueil</a></li><li><a onclick="showPage('offres')">Offres & Forfaits</a></li><li><a onclick="showPage('seminaire')">Séminaires</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
+      <div><p class="footer-h">Contact</p><ul class="footer-links"><li>📍 Mitsamihouli, Ngazidja</li><li>📅 Ouverture 2027</li><li>🕐 Réponse sous 48h</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Eden House · Projet Bachelor · Imrane Mohamed Abdou</span><span>Ouverture 2027</span></div>
+  </footer>
+</div>
+
+<script>
+function showPage(id){
+  ['restaurant','spa','bar','activites'].forEach(p=>{
+    const el=document.getElementById('nav-'+p);
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo(0,0);
+  setTimeout(initReveal,100);
+}
+function initReveal(){
+  const els=document.querySelectorAll('.page.active .reveal');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);io.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  els.forEach(el=>{el.classList.remove('visible');io.observe(el);});
+}
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  const s=document.getElementById('formSuccess');
+  s.style.display='flex';
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+initReveal();
+</script>
+
+
+<!-- ═══════════════ PAGE RESTAURANT ═══════════════ -->
+<div id="page-restaurant" class="page">
+  <div class="page-hero">
+    <p style="color:var(--sage);letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:0.5rem">Gastronomie</p>
+    <h1>Le Grand Café <em>EDEN</em></h1>
+    <p>Cuisine farm-to-table · Show Kitchen · Produits locaux tracés · 120 m² varangue créole</p>
+  </div>
+
+  <section class="menu-section">
+    <div style="max-width:1100px;margin:0 auto">
+      <p style="text-align:center;color:var(--text);margin-bottom:0.5rem;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase">Menu Découverte</p>
+      <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;margin-bottom:0.5rem">L'Art de la Table Comorienne</h2>
+      <p class="section-intro dark">Chaque plat est élaboré avec des produits locaux de saison, traçables et sans additifs. Notre potager bio Eden couvre 20&nbsp;% de l'approvisionnement.</p>
+
+      <div class="menu-grid">
+
+        <!-- Petit-déjeuner -->
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <span class="icon">☀️</span>
+            <div>
+              <h3>Petit-Déjeuner Gourmet</h3>
+              <p>7h00 – 10h00 · Terrasse vue mer <span class="tarif-badge">Inclus forfait · Ext. 22 € HT</span></p>
+            </div>
+          </div>
+          <div class="menu-card-body">
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.8rem">La Corbeille</p>
+            <div class="menu-item"><div><div class="menu-item-name">Pain artisanal maison</div><div class="menu-item-desc">Mie, viennoiseries · Beurre demi-sel · Confiture de fruits locaux</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Yaourt au lait de coco</div><div class="menu-item-desc">Fait maison chaque matin</div></div></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Les Œufs (au choix)</p>
+            <div class="menu-item"><div><div class="menu-item-name">Œufs brouillés au gingembre</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Œufs cocotte aux crevettes de Moroni</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Omelette herbes fraîches du potager</div></div><span class="menu-item-tag">Bio</span></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Les Douceurs</p>
+            <div class="menu-item"><div><div class="menu-item-name">Fruits tropicaux</div><div class="menu-item-desc">Mangue, papaye, banane de l'île</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Jus frais pressé</div><div class="menu-item-desc">Citron vert / gingembre</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Thé local ou café filtre Eden</div></div><span class="menu-item-tag">Local</span></div>
+          </div>
+        </div>
+
+        <!-- Déjeuner -->
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <span class="icon">🌿</span>
+            <div>
+              <h3>Déjeuner Raffiné</h3>
+              <p>12h00 – 14h00 · Formule 3 services <span class="tarif-badge">Inclus forfait · Ext. 38 € HT</span></p>
+            </div>
+          </div>
+          <div class="menu-card-body">
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.8rem">Entrée (au choix)</p>
+            <div class="menu-item"><div><div class="menu-item-name">Ceviche de thon rouge</div><div class="menu-item-desc">Lait de coco + citron kaffir</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Salade de poulpe grillé</div><div class="menu-item-desc">Avocat, pickles de mangue verte</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Bouillon du potager</div><div class="menu-item-desc">Légumes, herbes fraîches, crevettes</div></div><span class="menu-item-tag">Vegan ✓</span></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Plat (au choix)</p>
+            <div class="menu-item"><div><div class="menu-item-name">Langouste rôtie au beurre de ylang-ylang</div><div class="menu-item-desc">Riz basmati sauvage</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Poulet fermier mafé comorien</div><div class="menu-item-desc">Manioc rôti</div></div><span class="menu-item-tag">Local</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Curry de lentilles corail</div><div class="menu-item-desc">Coco, patate douce</div></div><span class="menu-item-tag">Végan</span></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Dessert</p>
+            <div class="menu-item"><div><div class="menu-item-name">Moelleux coco-vanille</div><div class="menu-item-desc">Coulis passion, sorbet citronnelle</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Assiette de fromages locaux</div><div class="menu-item-desc">Confiture tamarin</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Café + macaron signature EDEN</div></div><span class="menu-item-tag">Maison</span></div>
+          </div>
+        </div>
+
+        <!-- Dîner -->
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <span class="icon">🌙</span>
+            <div>
+              <h3>Dîner Gastronomique</h3>
+              <p>19h00 – 22h00 · Menu 3 séquences <span class="tarif-badge">Inclus forfait · Ext. 55 € HT</span></p>
+            </div>
+          </div>
+          <div class="menu-card-body">
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.8rem">Séquence 1 — Terre &amp; Mer</p>
+            <div class="menu-item"><div><div class="menu-item-name">Amuse-bouche</div><div class="menu-item-desc">Bouchée de crabe des cocotiers</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Carpaccio de saint-pierre</div><div class="menu-item-desc">Huile de baobab, herbes fraîches</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Velouté de giraumon</div><div class="menu-item-desc">Chantilly coco, chips de taro</div></div></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Séquence 2 — L'Île en Assiette</p>
+            <div class="menu-item"><div><div class="menu-item-name">Filet de vivaneau en croûte d'herbes</div><div class="menu-item-desc">Jus de corail</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Selle d'agneau aux épices zanzibar</div><div class="menu-item-desc">Quinoa local</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Médaillon de thon mi-cuit</div><div class="menu-item-desc">Vinaigrette combawa</div></div></div>
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin:1rem 0 0.8rem">Séquence 3 — Le Sucre des Îles</p>
+            <div class="menu-item"><div><div class="menu-item-name">Fondant chocolat Madagascar</div><div class="menu-item-desc">Glace ylang-ylang</div></div><span class="menu-item-tag">Signature</span></div>
+            <div class="menu-item"><div><div class="menu-item-name">Panna cotta jasmin</div><div class="menu-item-desc">Compotée de fruits rouges</div></div></div>
+            <div class="menu-item"><div><div class="menu-item-name">Dégustation Eden</div><div class="menu-item-desc">Macaron signature, mochi coco, tuile manioc</div></div></div>
+          </div>
+        </div>
+
+      </div><!-- /menu-grid -->
+
+      <div class="menu-note" style="margin-top:2.5rem">
+        <p>🌱 Tous nos plats sont élaborés avec des produits locaux de saison, traçables et sans additifs. Potager bio Eden : 20 % de l'approvisionnement. Allergènes disponibles sur demande. Menus végétariens et végans disponibles sur réservation.</p>
+      </div>
+
+      <div class="horaire-band" style="margin-top:2rem">
+        <div class="horaire-item"><div class="h-label">Petit-déjeuner</div><div class="h-time">7h00 – 10h00</div></div>
+        <div class="horaire-item"><div class="h-label">Déjeuner</div><div class="h-time">12h00 – 14h00</div></div>
+        <div class="horaire-item"><div class="h-label">Dîner gastronomique</div><div class="h-time">19h00 – 22h00</div></div>
+        <div class="horaire-item"><div class="h-label">Bar Lounge</div><div class="h-time">10h00 – 23h00</div></div>
+        <div class="horaire-item"><div class="h-label">Show Kitchen</div><div class="h-time">Ouvert en dîner</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--dark2);padding:2rem 3rem;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center">
+      <span style="color:rgba(255,255,255,0.3);font-size:0.8rem">© 2026 Eden House · Mitsamihouli · Comores</span>
+      <div style="display:flex;gap:1.5rem"><a onclick="showPage('accueil')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Accueil</a><a onclick="showPage('offres')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Forfaits</a><a onclick="showPage('spa')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Spa</a><a onclick="showPage('contact')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Contact</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE SPA & BIEN-ÊTRE ═══════════════ -->
+<div id="page-spa" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#0a1a12,#1A5C38)">
+    <p style="color:var(--sage);letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:0.5rem">Bien-être</p>
+    <h1>Beauty <em>Spa</em> & Bien-être</h1>
+    <p>Soins sur-mesure aux plantes comoriennes · Yoga · Méditation · Fitness · 9h–20h</p>
+  </div>
+
+  <section class="menu-section">
+    <div style="max-width:1100px;margin:0 auto">
+      <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;margin-bottom:0.5rem">Rituels &amp; Soins</h2>
+      <p class="section-intro dark">Chaque soin est conçu avec des produits naturels comoriens — ylang-ylang, vanille, coco — pour une expérience authentique et régénérante.</p>
+
+      <div class="spa-grid">
+        <div class="spa-card">
+          <div class="spa-icon">🌺</div>
+          <h3>Massage Signature Eden</h3>
+          <p>Massage corps complet aux huiles d'ylang-ylang comorien. Technique de relaxation profonde adaptée à chaque morphologie.</p>
+          <div class="dur">60 min · Inclus forfait Ressourcement & Transformation</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">🌿</div>
+          <h3>Rituel Enveloppement</h3>
+          <p>Enveloppement aux argiles volcaniques de Ngazidja, riches en minéraux. Détoxification cutanée profonde et éclat immédiat.</p>
+          <div class="dur">75 min · Sur réservation</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">🥥</div>
+          <h3>Soin Visage Coco-Vanille</h3>
+          <p>Masque hydratant au lait de coco et extrait de vanille de Mayotte. Peau régénérée, lumineuse et parfumée.</p>
+          <div class="dur">45 min · Hors forfait</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">💆</div>
+          <h3>Massage Duo</h3>
+          <p>Soin en cabine duo pour les couples. Deux thérapeutes simultanément, ambiance bougies et musique des îles.</p>
+          <div class="dur">60 min · Inclus forfait Transformation</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">🧘</div>
+          <h3>Yoga au Lever du Soleil</h3>
+          <p>Séance quotidienne à 6h30 en plein air, face à l'océan. Toutes pratiques bienvenues — du débutant au confirmé.</p>
+          <div class="dur">60 min · Inclus tous forfaits</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">🌅</div>
+          <h3>Méditation Crépusculaire</h3>
+          <p>Séance guidée au coucher du soleil sur la terrasse panoramique. Respiration consciente, pleine présence, lâcher-prise.</p>
+          <div class="dur">30 min · Inclus tous forfaits</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">🏃</div>
+          <h3>Running Culturel</h3>
+          <p>Sortie running guidée par un coach local dans les villages de Mitsamihouli. 5 à 10 km selon niveau.</p>
+          <div class="dur">1h30 · Sur réservation</div>
+        </div>
+        <div class="spa-card">
+          <div class="spa-icon">💪</div>
+          <h3>Centre Fitness</h3>
+          <p>Espace fitness équipé en matériel de qualité. Accès libre pendant les horaires d'ouverture du Spa.</p>
+          <div class="dur">Libre accès · 9h–20h</div>
+        </div>
+      </div>
+
+      <div class="horaire-band">
+        <div class="horaire-item"><div class="h-label">Yoga</div><div class="h-time">6h30</div></div>
+        <div class="horaire-item"><div class="h-label">Spa &amp; Soins</div><div class="h-time">9h00 – 20h00</div></div>
+        <div class="horaire-item"><div class="h-label">Fitness</div><div class="h-time">9h00 – 20h00</div></div>
+        <div class="horaire-item"><div class="h-label">Méditation</div><div class="h-time">Coucher du soleil</div></div>
+        <div class="horaire-item"><div class="h-label">Running</div><div class="h-time">Sur réservation</div></div>
+      </div>
+
+      <div class="menu-note" style="margin-top:2rem">
+        <p>✨ Les soins en cabine sont inclus dans les forfaits Ressourcement (3 soins) et Transformation (5 soins + rituel personnel). Les soins hors forfait sont disponibles à la carte. Réservation recommandée 24h à l'avance.</p>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem">
+        <a href="#" onclick="showPage('contact')" class="btn-primary">Réserver un soin →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--dark2);padding:2rem 3rem;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center">
+      <span style="color:rgba(255,255,255,0.3);font-size:0.8rem">© 2026 Eden House · Mitsamihouli · Comores</span>
+      <div style="display:flex;gap:1.5rem"><a onclick="showPage('accueil')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Accueil</a><a onclick="showPage('restaurant')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Restaurant</a><a onclick="showPage('bar')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Bar</a><a onclick="showPage('activites')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Activités</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE BAR LOUNGE ═══════════════ -->
+<div id="page-bar" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#0F1F17,#1a3a2a)">
+    <p style="color:var(--sage);letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:0.5rem">Bar Lounge</p>
+    <h1>Le Bar <em>Eden</em></h1>
+    <p>Face au coucher de soleil · Infusions bio · Mocktails signatures · Spiritueux premium · 10h–23h</p>
+  </div>
+
+  <section class="menu-section">
+    <div style="max-width:1100px;margin:0 auto">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start" class="two-col-responsive">
+
+        <div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:0.5rem">Philosophie du Bar</h2>
+          <p style="color:var(--text);line-height:1.8;margin-bottom:1.5rem">Le Bar Eden est un espace de décompression douce. Pas d'écrans, pas de bruit. Juste la vue sur l'océan, les sons de la nature et une sélection de créations signées inspirées par le potager bio d'Eden House.</p>
+          <p style="color:var(--text);line-height:1.8">Notre philosophie : un bar <strong>cohérent avec le détox</strong> — les mocktails et infusions sont au cœur de la carte. Les spiritueux premium restent disponibles pour ceux qui le souhaitent, sans pression et avec élégance.</p>
+
+          <div style="background:var(--forest2);border-radius:12px;padding:1.5rem 2rem;margin-top:2rem;border-left:3px solid var(--sage)">
+            <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.8rem">Concept</p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem">
+              <span style="color:rgba(255,255,255,0.7);font-size:0.85rem">🌿 Infusions froides bio — plantes du potager Eden</span>
+              <span style="color:rgba(255,255,255,0.7);font-size:0.85rem">🍹 Mocktails signatures — sans alcool, 100% saveurs îles</span>
+              <span style="color:rgba(255,255,255,0.7);font-size:0.85rem">🥃 Spiritueux premium — rhum arrangé comorien &amp; régional</span>
+              <span style="color:rgba(255,255,255,0.7);font-size:0.85rem">🍷 Vins &amp; pétillants — sélection naturelle &amp; biodynamique</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p style="color:var(--sage);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">Nos Créations</p>
+          <div class="bar-cocktails">
+            <div class="cocktail-card">
+              <div class="c-type">Mocktail Signature</div>
+              <h4>Eden Sunrise</h4>
+              <p>Hibiscus, citron kaffir, gingembre frais, eau de coco, glaçons fleuris</p>
+            </div>
+            <div class="cocktail-card">
+              <div class="c-type">Infusion froide</div>
+              <h4>Détox Vert</h4>
+              <p>Moringa, citronnelle, menthe du potager, concombre, jus de citron vert</p>
+            </div>
+            <div class="cocktail-card">
+              <div class="c-type">Mocktail Signature</div>
+              <h4>Ylang Fizz</h4>
+              <p>Eau florale d'ylang-ylang, eau gazeuse artisanale, sirop de vanille, citron</p>
+            </div>
+            <div class="cocktail-card">
+              <div class="c-type">Rhum Arrangé</div>
+              <h4>Rhum Coco-Vanille</h4>
+              <p>Rhum blanc des Comores, vanille de Mayotte, coco fraîche, macération 3 semaines</p>
+            </div>
+            <div class="cocktail-card">
+              <div class="c-type">Rhum Arrangé</div>
+              <h4>Rhum Fruit de la Passion</h4>
+              <p>Rhum vieux, fruit de la passion local, gingembre, zeste de combawa</p>
+            </div>
+            <div class="cocktail-card">
+              <div class="c-type">Infusion chaude</div>
+              <h4>Nuit Paisible</h4>
+              <p>Camomille, ylang-ylang, miel local, cardamome — parfait avant la méditation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="horaire-band" style="margin-top:3rem">
+        <div class="horaire-item"><div class="h-label">Ouverture</div><div class="h-time">10h00 – 23h00</div></div>
+        <div class="horaire-item"><div class="h-label">Happy hour détox</div><div class="h-time">17h30 – 19h00</div></div>
+        <div class="horaire-item"><div class="h-label">Coucher de soleil</div><div class="h-time">Voir programme</div></div>
+        <div class="horaire-item"><div class="h-label">Snacks &amp; tapas</div><div class="h-time">16h00 – 19h00</div></div>
+      </div>
+
+      <div class="menu-note" style="margin-top:2rem">
+        <p>🍹 Le Bar Eden est inclus dans les forfaits Ressourcement et Transformation (bar premium inclus). Les clients en forfait Découverte bénéficient du mocktail d'accueil signature EDEN à l'arrivée.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--dark2);padding:2rem 3rem;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center">
+      <span style="color:rgba(255,255,255,0.3);font-size:0.8rem">© 2026 Eden House · Mitsamihouli · Comores</span>
+      <div style="display:flex;gap:1.5rem"><a onclick="showPage('restaurant')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Restaurant</a><a onclick="showPage('spa')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Spa</a><a onclick="showPage('activites')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Activités</a><a onclick="showPage('contact')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Contact</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE ACTIVITÉS ═══════════════ -->
+<div id="page-activites" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#071510,#1A5C38)">
+    <p style="color:var(--sage);letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:0.5rem">Reconnexion à la Nature</p>
+    <h1>Activités & <em>Découvertes</em></h1>
+    <p>Dauphins · Karthala · Plongée · Bains de forêt · Running culturel · Piscine naturelle</p>
+  </div>
+
+  <section class="menu-section">
+    <div style="max-width:1100px;margin:0 auto">
+      <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;margin-bottom:0.5rem">L'Île comme Terrain de Jeu</h2>
+      <p class="section-intro dark">Toutes nos activités sont pensées pour vous reconnecter à l'essentiel — sans téléphone, sans écran. Juste vous, la nature et les Comores.</p>
+
+      <div class="activites-grid">
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🐬</div>
+            <h3>Observation des Dauphins</h3>
+            <div class="act-level">NATURE · DÉCOUVERTE</div>
+          </div>
+          <div class="act-card-body">
+            <p>Sortie en mer au lever du soleil pour observer les dauphins dans leur habitat naturel. Les eaux de Mitsamihouli sont l'un des rares endroits au monde où l'on peut nager à leur côté en totale liberté.</p>
+            <div class="act-tags">
+              <span class="act-tag">Demi-journée</span>
+              <span class="act-tag">Barque locale</span>
+              <span class="act-tag">Guide certifié</span>
+              <span class="act-tag">Inclus Transformation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🌋</div>
+            <h3>Randonnée Karthala</h3>
+            <div class="act-level">AVENTURE · PATRIMOINE UNESCO</div>
+          </div>
+          <div class="act-card-body">
+            <p>Ascension du volcan Karthala (2361 m), l'un des volcans actifs les plus impressionnants du monde. Forêts primaires, brumes et panorama sur l'océan Indien. Une expérience inoubliable.</p>
+            <div class="act-tags">
+              <span class="act-tag">Journée complète</span>
+              <span class="act-tag">Guide local</span>
+              <span class="act-tag">Panier-repas inclus</span>
+              <span class="act-tag">Niveau modéré</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🤿</div>
+            <h3>Plongée Responsable</h3>
+            <div class="act-level">AQUATIQUE · NATURE</div>
+          </div>
+          <div class="act-card-body">
+            <p>Exploration des récifs coralliens de Grande Comore avec un moniteur certifié PADI. Tortues marines, poissons tropicaux et coraux intacts. Baptême disponible pour les non-plongeurs.</p>
+            <div class="act-tags">
+              <span class="act-tag">Demi-journée</span>
+              <span class="act-tag">Moniteur PADI</span>
+              <span class="act-tag">Équipement fourni</span>
+              <span class="act-tag">Baptême possible</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🌲</div>
+            <h3>Bains de Forêt</h3>
+            <div class="act-level">BIEN-ÊTRE · SYLVOTHÉRAPIE</div>
+          </div>
+          <div class="act-card-body">
+            <p>Pratique japonaise du Shinrin-yoku adaptée aux forêts primaires comoriennes. Marche sensorielle guidée, respiration consciente, reconnexion profonde à la nature environnante.</p>
+            <div class="act-tags">
+              <span class="act-tag">2 heures</span>
+              <span class="act-tag">Petit groupe ≤8</span>
+              <span class="act-tag">Guide certifié</span>
+              <span class="act-tag">Tous niveaux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🐢</div>
+            <h3>Observation des Tortues</h3>
+            <div class="act-level">NATURE · CONSERVATION</div>
+          </div>
+          <div class="act-card-body">
+            <p>Les plages de Mitsamihouli sont un site de ponte des tortues marines de l'océan Indien. Sortie nocturne encadrée pour observer ce spectacle naturel unique, en partenariat avec les associations locales de conservation.</p>
+            <div class="act-tags">
+              <span class="act-tag">Soirée</span>
+              <span class="act-tag">Saisonnier</span>
+              <span class="act-tag">RSE · Conservation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🏊</div>
+            <h3>Piscine Naturelle</h3>
+            <div class="act-level">DÉTENTE · ÉCO-LUXE</div>
+          </div>
+          <div class="act-card-body">
+            <p>Notre bassin 12×6m à filtration biologique — sans chlore ni brome — utilise des plantes aquatiques locales pour purifier l'eau naturellement. Baignade en harmonie totale avec l'environnement.</p>
+            <div class="act-tags">
+              <span class="act-tag">9h–19h</span>
+              <span class="act-tag">72 m²</span>
+              <span class="act-tag">Zéro chlore</span>
+              <span class="act-tag">Green Key ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🏃</div>
+            <h3>Running Culturel</h3>
+            <div class="act-level">SPORT · DÉCOUVERTE LOCALE</div>
+          </div>
+          <div class="act-card-body">
+            <p>Sortie running avec un coach local qui vous fait traverser les villages traditionnels de Mitsamihouli, les marchés et les sites patrimoniaux. 5 à 10 km selon votre niveau, chaque course est une immersion.</p>
+            <div class="act-tags">
+              <span class="act-tag">1h30</span>
+              <span class="act-tag">5 à 10 km</span>
+              <span class="act-tag">Coach local</span>
+              <span class="act-tag">Tous niveaux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-card-top">
+            <div class="act-icon">🏺</div>
+            <h3>Visite Artisanale</h3>
+            <div class="act-level">CULTURE · CIRCUIT COURT</div>
+          </div>
+          <div class="act-card-body">
+            <p>Visite guidée des coopératives artisanales de Mitsamihouli — potiers, tisserands, producteurs d'ylang-ylang. Rencontre directe avec les artisans locaux partenaires d'Eden House.</p>
+            <div class="act-tags">
+              <span class="act-tag">Demi-journée</span>
+              <span class="act-tag">Circuit court</span>
+              <span class="act-tag">RSE · Local</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="menu-note" style="margin-top:2.5rem">
+        <p>🌊 Les activités sont incluses selon votre forfait : 1 activité découverte (Découverte), 2 activités au choix (Ressourcement), excursion Karthala ou sortie dauphins (Transformation). Toutes les activités peuvent être réservées individuellement. Programme adapté selon conditions météo et saison.</p>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem">
+        <a href="#" onclick="showPage('offres')" class="btn-primary" style="margin-right:1rem">Voir les forfaits →</a>
+        <a href="#" onclick="showPage('contact')" class="btn-ghost">Demander un programme →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--dark2);padding:2rem 3rem;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center">
+      <span style="color:rgba(255,255,255,0.3);font-size:0.8rem">© 2026 Eden House · Mitsamihouli · Comores</span>
+      <div style="display:flex;gap:1.5rem"><a onclick="showPage('restaurant')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Restaurant</a><a onclick="showPage('spa')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Spa</a><a onclick="showPage('bar')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Bar</a><a onclick="showPage('contact')" style="color:rgba(255,255,255,0.45);font-size:0.8rem;cursor:pointer">Contact</a></div>
+    </div>
+  </footer>
+</div>
+
+
+</body>
+</html>
